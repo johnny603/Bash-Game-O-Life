@@ -15,8 +15,7 @@ A grid-based survival game that combines the rules of Conway's Game of Life with
 ## Prerequisites
 
 -   A Unix-like operating system (Linux, macOS, WSL on Windows).
--   `bash` (version 4.0 or newer recommended).
--   Standard terminal commands (`tput`, `stty`, `read`). These are pre-installed on most systems.
+-   Node Package Manager
 
 ## How to Play
 
