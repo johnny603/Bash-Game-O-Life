@@ -26,6 +26,14 @@ const RulesScreen: React.FC<RulesScreenProps> = ({ onStart }) => {
             <ul className="list-disc list-inside space-y-2">
                 <li>Move your cell <span className="font-bold text-lime-400">(0)</span> one step per generation using <span className="bg-slate-700 px-2 py-1 rounded">W</span> <span className="bg-slate-700 px-2 py-1 rounded">A</span> <span className="bg-slate-700 px-2 py-1 rounded">S</span> <span className="bg-slate-700 px-2 py-1 rounded">D</span> keys.</li>
                 <li>Your cell dies if it has fewer than 2 or more than 3 live neighbors.</li>
+                <li>Example of a good move:</li>
+                <li>+ + -</li>
+                <li>+ 0 -</li>
+                <li>- - -</li>
+                <li>Example of a bad move:</li>
+                <li>- - -</li>
+                <li>- 0 -</li>
+                <li>- - +</li>
                 <li>Moving into an isolated dead cell (0 or 1 neighbor) is fatal unless you are immune.</li>
                 <li>Collect power-ups <span className="font-bold text-fuchsia-400">($)</span> for temporary immunity against isolation death.</li>
                 <li>Press <span className="bg-slate-700 px-2 py-1 rounded">R</span> anytime during the game to view these rules again.</li>
