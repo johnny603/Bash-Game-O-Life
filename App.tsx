@@ -63,7 +63,7 @@ const App: React.FC = () => {
     setScore(0);
     setImmunity(0);
     setGameState(GameState.Playing);
-    setTip(TIPS[Math.floor(Math.random() * TIPS.length)]);
+    setTip(TIPS[0]);
   }, []);
 
   const runNextGeneration = useCallback((currentBoard: Board, currentPlayerPos: Position) => {
@@ -111,6 +111,10 @@ const App: React.FC = () => {
     setBoard(nextBoard);
     setScore(s => s + 1);
     setImmunity(i => Math.max(0, i - 1));
+    setTip(prevTip => {
+  const currentIndex = TIPS.indexOf(prevTip);
+  return TIPS[(currentIndex + 1) % TIPS.length];
+});
   }, [countLiveNeighbors]);
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
