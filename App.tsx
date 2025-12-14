@@ -6,6 +6,14 @@ import Hud from './components/Hud';
 import RulesScreen from './components/RulesScreen';
 import GameOverScreen from './components/GameOverScreen';
 
+type LeaderboardEntry = {
+  initials: string;
+  score: number;
+  date: string;
+};
+
+const LEADERBOARD_KEY = 'gol_leaderboard';
+
 const App: React.FC = () => {
   const [gameState, setGameState] = useState<GameState>(GameState.Rules);
   const [previousGameState, setPreviousGameState] = useState<GameState | null>(null);
@@ -14,6 +22,28 @@ const App: React.FC = () => {
   const [score, setScore] = useState(0);
   const [immunity, setImmunity] = useState(0);
   const [tip, setTip] = useState(TIPS[0]);
+
+  const getLeaderboard = (): LeaderboardEntry[] => {
+  const raw = localStorage.getItem(LEADERBOARD_KEY);
+  return raw ? JSON.parse(raw) : [];
+  };
+
+  const saveScore = (score: number, initials: string) => {
+  const leaderboard = getLeaderboard();
+
+  leaderboard.push({
+    initials: initials.toUpperCase().slice(0, 3),
+    score,
+    date: new Date().toLocaleDateString(),
+  });
+
+  leaderboard.sort((a, b) => b.score - a.score);
+
+  localStorage.setItem(
+    LEADERBOARD_KEY,
+    JSON.stringify(leaderboard.slice(0, 5))
+    );
+  };
 
   const countLiveNeighbors = useCallback((b: Board, x: number, y: number): number => {
     let count = 0;
@@ -192,7 +222,8 @@ const App: React.FC = () => {
         };
         return <RulesScreen onStart={handleStart} />;
       case GameState.GameOver:
-        return <GameOverScreen score={score} onRestart={initGame} />;
+        return <GameOverScreen score={score} onRestart={initGame} leaderboard={getLeaderboard()}         // ✅ pass leaderboard
+      onSaveScore={(initials) => saveScore(score, initials)} />;
       case GameState.Playing:
         return (
           <>
