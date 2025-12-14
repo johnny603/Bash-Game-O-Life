@@ -1,6 +1,6 @@
 # Bash Game of Life: Survival
 
-A terminal-based survival game that combines the rules of Conway's Game of Life with player control, strategy, and survival mechanics. Written entirely in Bash.
+A grid-based survival game that combines the rules of Conway's Game of Life with player control, strategy, and survival mechanics. Written entirely in Typescript and React.
 
 ## Features
 
