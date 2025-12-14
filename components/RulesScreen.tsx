@@ -27,6 +27,9 @@ const RulesScreen: React.FC<RulesScreenProps> = ({ onStart }) => {
                 <li>Move your cell <span className="font-bold text-lime-400">(0)</span> one step per generation using <span className="bg-slate-700 px-2 py-1 rounded">W</span> <span className="bg-slate-700 px-2 py-1 rounded">A</span> <span className="bg-slate-700 px-2 py-1 rounded">S</span> <span className="bg-slate-700 px-2 py-1 rounded">D</span> keys.</li>
                 <li>Your cell dies if it has fewer than 2 or more than 3 live neighbors.</li>
                 <li className="list-none mt-2">
+                  <pre className="bg-slate-900 p-3 rounded text-white font-mono text-sm">
+Hello World
+</pre>
   <p className="font-semibold">Example of a good move:</p>
   <pre className="bg-slate-900 p-3 rounded text-lime-400 font-mono text-sm">
 + + -
