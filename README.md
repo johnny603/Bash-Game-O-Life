@@ -20,26 +20,22 @@ A terminal-based survival game that combines the rules of Conway's Game of Life 
 
 ## How to Play
 
-### 1. Clone the Repository
+### 1. Clone the Repository and setup
 Clone this repository to your local machine.
-```bash
+```
 git clone https://github.com/johnny603/Bash-Game-O-Life.git
 cd Bash-Game-O-Life
+npm install
 ```
 
 
-### 2. Make the Script Executable
+### 2. Run
 You only need to do this once.
 
 ```
-chmod +x gol_survival.sh
+npm run dev
 ```
 
-### 3. Run the Game
-Execute the script to start playing.
-```
-./gol_survival.sh
-```
 Game Controls
 W: Move Up
 A: Move Left
